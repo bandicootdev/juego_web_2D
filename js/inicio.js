@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let inicio = {
     iniciarJuego: () => {
         console.log('Juego iniciado');
+        dimensiones.iniciar();
         buclePrincipal.iterar();
     }
 }

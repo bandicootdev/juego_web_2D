@@ -14,6 +14,7 @@
 <h1>Prueba que funcione</h1>
 
 <script src="js/buclePrincipal.js"></script>
+<script src="js/dimensiones.js"></script>
 <script src="js/inicio.js"></script>
 </body>
 </html>
