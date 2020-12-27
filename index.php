@@ -10,9 +10,8 @@
     <title>Juego Web 2D</title>
 </head>
 <body>
-
-<h1>Prueba que funcione</h1>
-
+<div id="juego"></div>
+<script src="js/rectangulo.js"></script>
 <script src="js/buclePrincipal.js"></script>
 <script src="js/dimensiones.js"></script>
 <script src="js/inicio.js"></script>
