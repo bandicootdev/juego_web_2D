@@ -25,6 +25,7 @@ let buclePrincipal = {
     },
     actualizar: (registroTemporal) => {
         teclado.reiniciar();
+        mando.actualizar();
         buclePrincipal.aps++;
     },
     dibujar: (registroTemporal) => {
