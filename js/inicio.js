@@ -1,26 +1,24 @@
 'use strict'
 
 //DOM = DOCUMENT OBJECT MODEL
-document.addEventListener('DOMContentLoaded', () => {
-    inicio.iniciarJuego();
-}, false);
 
 let inicio = {
+    iniciadores: [
+        maquinaEstado.iniciar(),
+        teclado.iniciar(),
+        mando.iniciar(),
+        buclePrincipal.iterar()
+    ],
     iniciarJuego: () => {
-        console.log('Juego iniciado');
-        ajax.cargarArchivo("mapas/desierto.json");
-        teclado.iniciar();
-        dimensiones.iniciar();
-        mando.iniciar();
-        inicio.recargarTiles();
-        buclePrincipal.iterar();
+        inicio.encadenarInicios(inicio.iniciadores.shift());
     },
-    recargarTiles: () => {
-        document.getElementById('juego').innerHTML = '';
-        for (let y = 0; y < dimensiones.obtenerTilesVerticales(); y++) {
-            for (let x = 0; x < dimensiones.obtenerTilesHorizontales(); x++) {
-                new Rectangulo(x * dimensiones.ladoTiles, y * dimensiones.ladoTiles, dimensiones.ladoTiles, dimensiones.ladoTiles)
-            }
+    encadenarInicios: (iniciador) => {
+        if (iniciador) {
+            iniciador(() => inicio.encadenarInicios(inicio.iniciadores.shift()));
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    inicio.iniciarJuego();
+}, false);

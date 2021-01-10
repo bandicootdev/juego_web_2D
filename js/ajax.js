@@ -1,5 +1,5 @@
 let ajax = {
-    cargarArchivo: (ruta) => {
+    cargarArchivo: (ruta, callback) => {
         let request = new XMLHttpRequest();
         request.onreadystatechange = () => {
             /*
@@ -11,7 +11,8 @@ let ajax = {
             */
             if (request.readyState === XMLHttpRequest.DONE) {
                 if (request.status === 200) {
-                    console.log(JSON.parse(request.responseText))
+                    // console.log(JSON.parse(request.responseText))
+                    callback(JSON.parse(request.responseText));
                 } else if (request.status === 400) {
                     console.log('err')
                 } else {

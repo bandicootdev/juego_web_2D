@@ -10,6 +10,7 @@ class Tile {
 
 
     aplicarStilos() {
+
         if (!document.getElementById(this.idHtml)) {
             throw(`${this.idHtml} no existe en la hoja`);
         }

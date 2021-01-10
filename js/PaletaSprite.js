@@ -11,11 +11,11 @@ class PaletaSprite {
         this.totalSprites = this.anchoImagenMedidoSprites * this.altoImagenMedidoSprites;
         this.sprites = [];
 
-        this.totalSprites.map(e => {
-            // let idActual = this.primerSpriteSobreUno - 1 + e
-            // console.log(idActual)
-            this.sprites.push(new Sprite(this.rutaImagen, e, this.obtenerPosicion(e)));
-        })
+
+        for (let e = 0; e < this.totalSprites; e++) {
+            let idActual = this.primerSpriteSobreUno - 1 + e
+            this.sprites.push(new Sprite(this.rutaImagen, e, this.obtenerPosicion(idActual)));
+        }
     }
 
     obtenerPosicion(id) {
