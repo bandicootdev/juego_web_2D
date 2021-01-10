@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let inicio = {
     iniciarJuego: () => {
         console.log('Juego iniciado');
+        ajax.cargarArchivo("mapas/desierto.json");
         teclado.iniciar();
         dimensiones.iniciar();
         mando.iniciar();
